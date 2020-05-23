@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="styleSheet" href="./css//styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="boxPanel">
+      <div id="colorViewer"></div>
+      <div id="boxControllers">
+        <div id="boxLabels">
+          <label>(R) Vermelho</label>
+          <label>(G) Verde</label>
+          <label>(B) Azul</label>
+        </div>
+        <div id="boxSelectors">
+          <input type="range" class="powerRanger" id="#rangerRed" max="256" />
+          <input type="range" class="powerRanger" id="#rangerGreen" max="256" />
+          <input type="range" class="powerRanger" id="#rangerBlue" max="256" />
+        </div>
+        <div id="boxRangeViewers">
+          <input type="text" class="rangeViewer" id="inputRed" disabled />
+          <input type="text" class="rangeViewer" id="inputGreen" disabled />
+          <input type="text" class="rangeViewer" id="inputBlue" disabled />
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

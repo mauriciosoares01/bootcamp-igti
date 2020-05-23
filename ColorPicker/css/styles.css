@@ -1,0 +1,63 @@
+body {
+  background-color: #f1f3f4;
+  display: flex;
+  justify-content: center;
+}
+
+#boxPanel {
+  width: 450px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 150px;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+#colorViewer {
+  width: 120px;
+  min-width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  background-color: rgb(128, 128, 128);
+}
+
+#boxSelectors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#boxLabels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#boxRangeViewers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#boxPanel {
+  display: flex;
+  flex-direction: row;
+}
+
+label {
+  font-size: 16px;
+  padding-right: 15px;
+}
+
+#boxControllers {
+  margin-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.rangeViewer {
+  height: 1em;
+  width: 3em;
+  margin-left: 15px;
+}
