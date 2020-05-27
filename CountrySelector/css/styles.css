@@ -1,0 +1,15 @@
+h2 {
+  margin: 20px;
+}
+
+#listsPanel {
+  display: flex;
+  flex-direction: row;
+}
+
+.countriesList {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
