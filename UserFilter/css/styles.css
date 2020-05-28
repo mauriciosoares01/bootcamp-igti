@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+#panelBox {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.resultBox {
+  padding: 10px;
+  border: 1px solid lightgray;
+  margin: 10px;
+  width: 250px;
+}
+
+#searchInput {
+  width: 560px;
+}
