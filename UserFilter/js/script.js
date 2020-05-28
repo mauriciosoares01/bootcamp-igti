@@ -17,9 +17,9 @@ async function fetchData() {
   usersList = json.results.map((data) => {
     const { name, picture, dob, gender } = data;
     return {
-      name: `${name.first} ${name.last}`,
+      name: `${name.first} ${name.last}`.toLowerCase(),
       picture,
-      dob: dob.data,
+      dob: dob.date,
       age: dob.age,
       gender,
     };
@@ -28,4 +28,8 @@ async function fetchData() {
 
 function searchUser(event) {
   let keyWord = event.srcElement.value.toLowerCase();
+  filteredUsers = usersList.filter(
+    (user) => user.name.toLowerCase().localeCompare(keyWord) > 0
+  );
+  console.log(filteredUsers);
 }
