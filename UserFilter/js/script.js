@@ -26,10 +26,34 @@ async function fetchData() {
   });
 }
 
+function render() {
+  renderResults();
+  renderStats();
+}
+
+function renderResults() {
+  let resultHTML = "<div>";
+  resultList.forEach((item) => {
+    const { picture, name, age } = item;
+    const result = `
+      <div>
+        <img src="${picture.medium}" />
+        <div>
+          <ul>${name}</>
+          <ul>${age}</>
+        </div>
+      </div>
+    `;
+    resultHTML += result;
+  });
+}
+
+function renderStats() {}
+
 function searchUser(event) {
   let keyWord = event.srcElement.value.toLowerCase();
-  filteredUsers = usersList.filter(
-    (user) => user.name.toLowerCase().localeCompare(keyWord) > 0
+  resultList = usersList.filter(
+    (user) => user.name.toLowerCase().indexOf(keyWord) !== -1
   );
-  console.log(filteredUsers);
+  console.log(resultList);
 }
