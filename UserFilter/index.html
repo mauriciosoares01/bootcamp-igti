@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UserFilter</title>
-    <link rel="styleSheet" href="css/styles.css"/>
+    <link rel="styleSheet" href="css/styles.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      media="screen,projection"
+    />
   </head>
   <body>
-    <h1>Pesquisa de usuários</h1>
+    <h2>Pesquisa de usuários</h2>
     <input type="text" id="searchInput" />
-    <script src="./js/script.js"></script>
     <div id="panelBox">
-      <div class="resultBox">
-        <label id="emptyUsers" class="errorLabel">Nenhum usuário encontrado</label>
-      </div>
-      <div class="resultBox" class="errorLabel>
-        <label id="emptyData">Nada a ser exibido</label>
+      <div class="resultBox" id="tabResults"></div>
+      <div class="resultBox" id="tabStats">
+        Nada a ser exibido
       </div>
     </div>
+    <script src="./js/script.js"></script>
   </body>
 </html>

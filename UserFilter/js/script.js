@@ -3,9 +3,13 @@ window.addEventListener("load", start);
 let usersList = [];
 let resultList = [];
 let searchInput = document.querySelector("#searchInput");
+let tabResults = document.querySelector("#tabResults");
+let tabStats = document.querySelector("#tabStats");
 
 function start() {
   fetchData();
+  tabResults.innerHTML = "<h4>Nenhum usuário encontrado</h4>";
+  tabStats.innerHTML = "<h4>Nada a ser exibido</h4>";
   searchInput.addEventListener("keyup", searchUser);
 }
 
@@ -32,28 +36,66 @@ function render() {
 }
 
 function renderResults() {
-  let resultHTML = "<div>";
-  resultList.forEach((item) => {
-    const { picture, name, age } = item;
-    const result = `
-      <div>
-        <img src="${picture.medium}" />
-        <div>
-          <ul>${name}</>
-          <ul>${age}</>
+  tabResults.innerHTML = "";
+  let resultHTML = `<div>
+    <h4>${resultList.length} usuário(s) encontrado(s)</h4>
+  `;
+  if (resultList.length > 0) {
+    resultList.forEach((item) => {
+      const { picture, name, age } = item;
+      const result = `
+        <div class="userBox">
+          <img src="${picture.medium}" />
+          <div class="userInfos">
+            <ul>${name}</>
+            <ul>${age} anos</>
+          </div>
         </div>
-      </div>
-    `;
-    resultHTML += result;
-  });
+      `;
+      resultHTML += result;
+    });
+  } else {
+    tabResults.innerHTML += `<h4>Nenhum usuário encontrado</h4>`;
+    return;
+  }
+  resultHTML += "</div>";
+  tabResults.innerHTML += resultHTML;
 }
 
-function renderStats() {}
+function renderStats() {
+  const males = resultList.filter((user) => user.gender === "male");
+  const females = resultList.filter((user) => user.gender === "female");
+  const agesSum = resultList.reduce((acc, curr) => acc + curr.age, 0);
+  const averageAge = (agesSum / resultList.length).toFixed(2);
+
+  tabStats.innerHTML = "";
+  if (resultList.length > 0) {
+    tabStats.innerHTML = `
+      <div>
+        <h4>Estatítiscas</h4>
+        <ul>Sexo masculino: ${males.length}</ul>
+        <ul>Sexo feminino: ${females.length}</ul>
+        <ul>Soma das idades: ${agesSum}</ul>
+        <ul>Média das idades: ${averageAge}</ul>
+      </div>
+    `;
+  } else {
+    tabStats.innerHTML = "<h4>Nada a ser exibido</h4>";
+  }
+}
 
 function searchUser(event) {
+  if (event.srcElement.value === "") {
+    resultList = [];
+    render();
+    return;
+  }
   let keyWord = event.srcElement.value.toLowerCase();
   resultList = usersList.filter(
     (user) => user.name.toLowerCase().indexOf(keyWord) !== -1
   );
-  console.log(resultList);
+  resultList = resultList.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+  render();
 }
