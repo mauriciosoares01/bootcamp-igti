@@ -5,9 +5,8 @@
 ## Pratices
 
 ### User Filter
-
 - JS, HTML and CSS
-  ![Image of userFilter](https://github.com/mauriciosoares01/bootcamp-igti/blob/master/UserFilter/userFilter.png?raw=true)
+![Image of userFilter](https://github.com/mauriciosoares01/bootcamp-igti/blob/master/UserFilter/userFilter.png?raw=true)
 
 ### Country selector [WIP]
 
