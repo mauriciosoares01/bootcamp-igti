@@ -45,8 +45,11 @@ app.get("/rank", async (req, res) => {
   try {
     const body = req.body;
     const data = JSON.parse(await readFile(global.file, "utf8"));
-    const average = await getAverage(body, data);
-    res.send({ ok: true, data: average });
+    const grades = data.grades.filter(
+      (item) => item.subject === body.subject && item.type === body.type
+    );
+    grades.sort((a, b) => b.value - a.value);
+    res.send({ ok: true, data: grades.slice(0, 3) });
   } catch (error) {
     res.sendStatus(400).send({ ok: false, message: error.message });
   }
