@@ -11,22 +11,8 @@ export default function Home() {
 
   async function getGrades() {
     const res = await api.getAllGrades();
-
-    if (res.status === 200) {
-      const fomatedGrades = res.data.grades.map((grade) => {
-        const { student, subject, type } = grade;
-        return {
-          ...grade,
-          studentLowerCase: student.toLowerCase(),
-          subjectLowerCase: subject.toLowerCase(),
-          typeLowerCase: type.toLowerCase(),
-          isDeleted: false,
-        };
-      });
-
-      setGrades(fomatedGrades);
-    }
+    console.log(res);
   }
 
-  return <Container>Olá mundo</Container>;
+  return <Container>Olá mundo!</Container>;
 }
